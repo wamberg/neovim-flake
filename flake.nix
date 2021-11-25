@@ -20,8 +20,8 @@
     nvim-lightbulb = { url = "github:kosayoda/nvim-lightbulb"; flake = false; };
     nvim-lspconfig = { url = "github:neovim/nvim-lspconfig"; flake = false; };
     nvim-telescope = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
-    nvim-treesitter = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false;};
-    nvim-treesitter-context = { url = "github:romgrk/nvim-treesitter-context"; flake = false;};
+    nvim-treesitter = { url = "github:nvim-treesitter/nvim-treesitter"; flake = false; };
+    nvim-treesitter-context = { url = "github:romgrk/nvim-treesitter-context"; flake = false; };
     nvim-web-devicons = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
     nvim-which-key = { url = "github:folke/which-key.nvim"; flake = false; };
     plenary-nvim = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
@@ -39,7 +39,7 @@
         plugins = [
           "completion-nvim"
           "editorconfig-vim"
-          "fugitive" 
+          "fugitive"
           "github-theme"
           "lightline-vim"
           "nvim-lightbulb"
@@ -87,19 +87,19 @@
 
         defaultApp = apps.nvim;
 
-        defaultPackage = packages.neovimWT;
+        defaultPackage = packages.neovimWamberg;
 
 
         overlay = (self: super: {
           inherit neovimBuilder;
-          neovimWT = packages.neovimWT;
-	  neovimPlugins = pkgs.neovimPlugins;
+          neovimWamberg = packages.neovimWamberg;
+          neovimPlugins = pkgs.neovimPlugins;
         });
 
-        packages.neovimWT = neovimBuilder {
+        packages.neovimWamberg = neovimBuilder {
           config = {
-	          vim.viAlias = true;
-	          vim.vimAlias = true;
+            vim.viAlias = true;
+            vim.vimAlias = true;
             vim.theme.github.enable = true;
             vim.disableArrows = true;
             vim.statusline.lightline.enable = true;
