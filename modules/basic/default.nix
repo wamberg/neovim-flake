@@ -54,12 +54,6 @@ in {
       type = types.bool;
     };
 
-    mouseSupport = mkOption {
-      default = "a";
-      description = "Set modes for mouse support. a - all, n - normal, v - visual, i - insert, c - command";
-      type = types.str;
-    };
-
     lineNumberMode = mkOption {
       default = "relNumber";
       description = "How line numbers are displayed. none, relative, number, relNumber";
@@ -155,7 +149,6 @@ in {
 
       "Settings that are set for everything
       set encoding=utf-8
-      set mouse=${cfg.mouseSupport}
       set tabstop=${toString cfg.tabWidth}
       set shiftwidth=${toString cfg.tabWidth}
       set softtabstop=${toString cfg.tabWidth}
