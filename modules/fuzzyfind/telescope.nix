@@ -1,10 +1,11 @@
-{ pkgs, lib, config, ...}:
+{ pkgs, lib, config, ... }:
 with lib;
 with builtins;
 
 let
   cfg = config.vim.fuzzyfind.telescope;
-in {
+in
+{
   options.vim.fuzzyfind.telescope = {
     enable = mkEnableOption "Enable telescope";
 
@@ -22,26 +23,25 @@ in {
       local wk = require("which-key")
 
       wk.register({
-        b = {
-          name = "Buffers",
-          l = { "List Buffers" },
-          c = { "Close buffer" },
-        },
-        p = {
-          name = "Project",
+        f = {
+          name = "Find",
+          a = { "All Files" },
+          b = { "Find Buffer"},
           f = { "Find File"},
-          g = { "Grep "},
+          h = { "Find Header"},
+          x = { "Close buffer" },
         },
       }, { prefix = "<leader>" })
     '';
 
     vim.nnoremap = {
-      "<leader>pf" = "<cmd>Telescope find_files<cr>";
-      "<leader>pg" = "<cmd>Telescope live_grep<cr>";
-      "<leader>bl" = "<cmd>Telescope buffers<cr>";
-      "<leader>bc" = "<cmd>bdelete<cr>";
+      "<leader>fa" = "<cmd>Telescope find_files<cr>";
+      "<leader>ff" = "<cmd>Telescope git_files<cr>";
+      "<leader>fg" = "<cmd>Telescope live_grep<cr>";
+      "<leader>fh" = "<cmd>Telescope grep_string search=^#\\  use_regex=true=<cr>";
+      "<leader>fb" = "<cmd>Telescope buffers<cr>";
+      "<leader>bx" = "<cmd>bdelete<cr>";
     };
-
 
   };
 }

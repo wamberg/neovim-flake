@@ -31,6 +31,7 @@
     vim-nix = { url = "github:LnL7/vim-nix"; flake = false; };
     vim-test = { url = "github:vim-test/vim-test"; flake = false; };
     vim-tmux-navigator = { url = "github:christoomey/vim-tmux-navigator"; flake = false; };
+    vimwiki = { url = "github:vimwiki/vimwiki"; flake = false; };
   };
 
   outputs = { nixpkgs, flake-utils, neovim, ... }@inputs:
@@ -55,6 +56,7 @@
           "vim-nix"
           "vim-test"
           "vim-tmux-navigator"
+          "vimwiki"
         ];
 
         pluginOverlay = lib.buildPluginOverlay;
@@ -98,37 +100,38 @@
 
         packages.neovimWamberg = neovimBuilder {
           config = {
-            vim.viAlias = true;
-            vim.vimAlias = true;
-            vim.theme.github.enable = true;
             vim.disableArrows = true;
-            vim.statusline.lightline.enable = true;
-            vim.lsp.enable = true;
+            vim.editor.colorPreview = true;
+            vim.formatting.editorConfig.enable = true;
+            vim.fuzzyfind.telescope.enable = true;
+            vim.git.enable = true;
             vim.lsp.bash = true;
+            vim.lsp.clang = true;
+            vim.lsp.cmake = false; # Currently broken
+            vim.lsp.css = true;
+            vim.lsp.docker = true;
+            vim.lsp.enable = true;
             vim.lsp.go = true;
+            vim.lsp.html = true;
+            vim.lsp.json = true;
+            vim.lsp.lightbulb = true;
             vim.lsp.nix = true;
             vim.lsp.python = true;
             vim.lsp.ruby = true;
             vim.lsp.rust = true;
             vim.lsp.terraform = true;
+            vim.lsp.tex = true;
             vim.lsp.typescript = true;
+            vim.lsp.variableDebugPreviews = true;
             vim.lsp.vimscript = true;
             vim.lsp.yaml = true;
-            vim.lsp.docker = true;
-            vim.lsp.tex = true;
-            vim.lsp.css = true;
-            vim.lsp.html = true;
-            vim.lsp.json = true;
-            vim.lsp.clang = true;
-            vim.lsp.cmake = false; # Currently broken
-            vim.lsp.lightbulb = true;
-            vim.lsp.variableDebugPreviews = true;
-            vim.fuzzyfind.telescope.enable = true;
-            vim.git.enable = true;
-            vim.formatting.editorConfig.enable = true;
-            vim.editor.colorPreview = true;
+            vim.statusline.lightline.enable = true;
+            vim.statusline.lightline.theme = "powerline";
+            vim.editor.vimwiki.enable = true;
             vim.test.enable = true;
-
+            vim.theme.github.enable = true;
+            vim.viAlias = true;
+            vim.vimAlias = true;
           };
         };
       });
