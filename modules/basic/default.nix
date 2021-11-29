@@ -159,6 +159,11 @@ in {
       set tm=${toString cfg.mapTimeout}
       set hidden
 
+      " line numbers
+      set cursorline
+      set cursorlineopt=number
+      set numberwidth=1
+
       ${writeIf cfg.splitBelow ''
         set splitbelow
       ''}
