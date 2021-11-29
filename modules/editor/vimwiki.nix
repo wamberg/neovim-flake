@@ -31,6 +31,13 @@ in
 
       " Create new notes
       command! NewNote :execute ":e" zettelkasten . strftime("%Y%m%d%H%M") . ".md"
+
+      " format markdown file on save
+      execute "autocmd BufWritePost " . zettelkasten . "*.md silent! call FormatMd()"
+      function FormatMd()
+        !npm run format-file <afile>
+        edit
+      endfunction
     '';
 
     vim.luaConfigRC = builtins.readFile ./zettel.lua;
