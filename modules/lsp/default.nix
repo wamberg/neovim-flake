@@ -55,51 +55,18 @@ in {
 
     '';
 
-    vim.nnoremap = {
-      #"<f2>" = "<cmd>lua vim.lsp.buf.rename()<cr>";
-      "<leader>cR" = "<cmd>lua vim.lsp.buf.rename()<cr>";
-      "<leader>cr" = "<cmd>lua require'telescope.builtin'.lsp_references()<CR>";
-      "<leader>ca" = "<cmd>lua require'telescope.builtin'.lsp_code_actions()<CR>";
-
-      "<leader>cd" = "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>";
-      "<leader>ci" = "<cmd>lua require'telescope.builtin'.lsp_implementations()<cr>";
-      #"<leader>e" = "<cmd>lua require'telescope.builtin'.lsp_document_diagnostics()<cr>";
-      #"<leader>E" = "<cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<cr>";
-      "<leader>cf" = "<cmd>lua vim.lsp.buf.formatting()<CR>";
-      "<leader>ck" = "<cmd>lua vim.lsp.buf.signature_help()<CR>";
-      #"<leader>K" = "<cmd>lua vim.lsp.buf.hover()<CR>";
-
-      #"[d" = "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>";
-      #"]d" = "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>";
-
-      #"<leader>q" = "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>";
-    };
-
-    vim.globals = {
-    };
-
     vim.luaConfigRC = ''
       local wk = require("which-key")
       wk.register({
         c = {
           name = "Code",
-          a = {"Code Action"},
-          f = {"Format"},
-          d = {"Definitions"},
-          i = {"Implementations"},
-          R = {"Rename"},
-          r = {"References"},
-          k = {"Signature"},
-        },
-        d = {
-          name = "Debug",
-          o = {"Step Over"},
-          s = {"Step Into"},
-          O = {"Step Out"},
-          c = {"Continue"},
-          b = {"Toggle Break Point"},
-          r = {"Debug Repl"},
-
+          R = {"<cmd>lua vim.lsp.buf.rename()<cr>", "Rename"},
+          a = {"<cmd>lua require'telescope.builtin'.lsp_code_actions()<CR>", "Code Action"},
+          d = {"<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>", "Definitions"},
+          f = {"<cmd>lua vim.lsp.buf.formatting()<CR>", "Format"},
+          i = {"<cmd>lua require'telescope.builtin'.lsp_implementations()<cr>", "Implementations"},
+          k = {"<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature"},
+          r = {"<cmd>lua require'telescope.builtin'.lsp_references()<CR>", "References"},
         },
       },{ prefix = "<leader>" })
 

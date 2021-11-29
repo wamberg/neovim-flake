@@ -25,23 +25,15 @@ in
       wk.register({
         f = {
           name = "Find",
-          a = { "All Files" },
-          b = { "Find Buffer"},
-          f = { "Find File"},
-          h = { "Find Header"},
-          x = { "Close buffer" },
+          a = { "<cmd>Telescope find_files<cr>", "All Files" },
+          b = { "<cmd>Telescope buffers<cr>", "Find Buffer"},
+          f = { "<cmd>Telescope git_files<cr>", "Find File"},
+          g = { "<cmd>Telescope live_grep<cr>", "Find Grep"},
+          h = { "<cmd>Telescope grep_string search=^#\\  use_regex=true=<cr>", "Find Header"},
+          x = { "<cmd>bdelete<cr>", "Close File"},
         },
       }, { prefix = "<leader>" })
     '';
-
-    vim.nnoremap = {
-      "<leader>fa" = "<cmd>Telescope find_files<cr>";
-      "<leader>ff" = "<cmd>Telescope git_files<cr>";
-      "<leader>fg" = "<cmd>Telescope live_grep<cr>";
-      "<leader>fh" = "<cmd>Telescope grep_string search=^#\\  use_regex=true=<cr>";
-      "<leader>fb" = "<cmd>Telescope buffers<cr>";
-      "<leader>bx" = "<cmd>bdelete<cr>";
-    };
 
   };
 }
