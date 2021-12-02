@@ -13,6 +13,7 @@ in {
 
     vim.startPlugins = with pkgs.neovimPlugins; [ 
       fugitive
+      vim-gitgutter
     ];
   };
 }

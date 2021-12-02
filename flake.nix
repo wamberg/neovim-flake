@@ -28,6 +28,7 @@
     popup-nvim = { url = "github:nvim-lua/popup.nvim"; flake = false; };
     rnix-lsp.url = github:nix-community/rnix-lsp;
     vim-css-color = { url = "github:ap/vim-css-color"; flake = false; };
+    vim-gitgutter = { url = "github:airblade/vim-gitgutter"; flake = false; };
     vim-nix = { url = "github:LnL7/vim-nix"; flake = false; };
     vim-test = { url = "github:vim-test/vim-test"; flake = false; };
     vim-tmux-navigator = { url = "github:christoomey/vim-tmux-navigator"; flake = false; };
@@ -53,6 +54,7 @@
           "plenary-nvim"
           "popup-nvim"
           "vim-css-color"
+          "vim-gitgutter"
           "vim-nix"
           "vim-test"
           "vim-tmux-navigator"
