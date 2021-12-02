@@ -22,6 +22,16 @@ in
       nvim-which-key
     ];
 
+    vim.luaConfigRC = ''
+      require("which-key").setup {
+        plugins = {
+          spelling = {
+            enabled = true
+          }
+        }
+      }
+    '';
+
   };
   imports = [
     ./vimwiki.nix
